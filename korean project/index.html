@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KR Korean Online Class</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="header">
+    <h1>KR Korean Online Class</h1>
+    <p>
+      Instagramda foydali kontenlar chiqarib boraman
+      <a href="https://instagram.com/studyholic_kr" target="_blank" rel="noopener">@studyholic_kr</a> 🧕
+    </p>
+  </header>
+
+  <main class="wrap">
+    <!-- STEP 1: REGISTER -->
+    <section class="card" id="registerCard">
+      <h2>Ro‘yxatdan o‘tish</h2>
+
+      <div class="field">
+        <input class="input" id="regName" placeholder="Ismingiz (Nick)" />
+      </div>
+
+      <div class="field">
+        <input class="input" id="regPhone" placeholder="Telefon raqam (+998...)" />
+      </div>
+
+      <button class="btn primary press" id="btnRegister">Ro‘yxatdan o‘tish</button>
+
+      <p class="hint" id="regHint">Avval ro‘yxatdan o‘ting, keyin darsga kirasiz.</p>
+    </section>
+
+    <!-- STEP 2: JOIN -->
+    <section class="card" id="joinCard">
+      <h2>Korean Live Class</h2>
+
+      <div class="field">
+        <input class="input" id="studentName" placeholder="Darsdagi ismingiz" />
+      </div>
+
+      <button class="btn primary press" id="btnJoin">Join Class</button>
+
+      <div class="class-info">
+        <div>
+          <div class="label">Dars vaqti:</div>
+          <div class="value" id="classTimeText">Hali belgilanmagan</div>
+        </div>
+        <div>
+          <div class="label">Video:</div>
+          <div class="value" id="classVideoText">Hali link yo‘q</div>
+        </div>
+      </div>
+
+      <p class="hint" id="joinHint">Admin dars vaqtini belgilasa, vaqt kelganda avtomatik darsga o‘tasiz.</p>
+    </section>
+
+    <!-- CLASS PLAYER -->
+    <section class="card player" id="playerCard">
+      <h2>Dars</h2>
+      <p class="hint" id="playerHint">Dars boshlanishini kutyapmiz…</p>
+
+      <div class="playerBox" id="playerBox">
+        <div class="playerEmpty" id="playerEmpty">
+          Video hali qo‘yilmagan yoki dars boshlanmagan.
+        </div>
+        <iframe
+          id="videoFrame"
+          title="KR Class Video"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="row">
+        <button class="btn press" id="btnTestShake">Tugmalar qimirlash (test)</button>
+        <button class="btn ghost press" id="btnLogout">Chiqish</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating Admin Button -->
+  <button class="admin-fab press" id="adminFab" title="Admin panel">⚙</button>
+
+  <!-- ADMIN MODAL -->
+  <div class="modal" id="adminModal" aria-hidden="true">
+    <div class="modalCard">
+      <div class="modalHead">
+        <h3>Admin Panel</h3>
+        <button class="icon press" data-close="#adminModal">✕</button>
+      </div>
+
+      <!-- LOGIN -->
+      <div id="adminLogin">
+        <p class="hint">Kirish uchun login qiling.</p>
+        <div class="field">
+          <input class="input" id="adminUser" placeholder="Username" />
+        </div>
+        <div class="field">
+          <input class="input" id="adminPass" type="password" placeholder="Password" />
+        </div>
+        <button class="btn primary press" id="btnAdminLogin">Kirish</button>
+        <p class="hint" id="adminLoginHint"></p>
+      </div>
+
+      <!-- PANEL -->
+      <div id="adminPanel" class="hidden">
+        <p class="hint">Video link qo‘ying va dars vaqtini belgilang.</p>
+
+       <label class="lbl">Jitsi xona nomi (Room name)</label>
+<input class="input" id="roomName" placeholder="Masalan: StudyholicKR-001" />
+<p class="mini">Dars Jitsi’da ochiladi: meet.jit.si/ROOM_NAME</p>
+
+          <p class="mini">YouTube bo‘lsa, avtomatik embedga aylantiramiz.</p>
+        </div>
+
+        <div class="field">
+          <label class="lbl">Dars sanasi va vaqti</label>
+          <input class="input" id="classDatetime" type="datetime-local" />
+          <p class="mini">Vaqt kelganda o‘quvchi avtomatik darsga o‘tadi.</p>
+        </div>
+
+        <div class="row">
+          <button class="btn primary press" id="btnSaveClass">Saqlash</button>
+          <button class="btn ghost press" id="btnAdminLogout">Admin chiqish</button>
+        </div>
+
+        <div class="adminPreview">
+          <div class="label">Hozirgi sozlamalar:</div>
+          <div class="value" id="adminPreviewText">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
